@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
 
 const ChatEntry = (props) => {
-  const [likeButton, setLikeButton] = useState('🤍');
+  // const [likeButton, setLikeButton] = useState('🤍');
 
   const onLikedButtonClick = () => {
     const updatedMessage = {
@@ -16,9 +16,12 @@ const ChatEntry = (props) => {
     };
 
     props.updateMessageData(updatedMessage);
-    setLikeButton(updatedMessage.liked ? '❤️' : '🤍');
-    const bool = likeButton === '🤍';
-    props.updateTotalLikes(bool);
+    const likedBool = updatedMessage.liked;
+    const btnState = props.likeButton === '🤍';
+    props.updateLikeButton(likedBool, btnState);
+    // setLikeButton(updatedMessage.liked ? '❤️' : '🤍');
+    // const bool = likeButton === '🤍';
+    // props.updateTotalLikes(bool);
   };
 
   const localRemote =
@@ -33,7 +36,7 @@ const ChatEntry = (props) => {
           <TimeStamp time={props.timeStamp} />
         </p>
         <button onClick={onLikedButtonClick} className="like">
-          {likeButton}
+          {props.likeButton}
         </button>
       </section>
     </div>

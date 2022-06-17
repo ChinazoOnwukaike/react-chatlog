@@ -7,7 +7,7 @@ const App = () => {
   //state
   const [messageData, setMessageData] = useState(chatMessages);
   let [totalLikes, setTotalLikes] = useState(0);
-  // const [likeButton, setLikeButton] = useState('🤍');
+  const [likeButton, setLikeButton] = useState('🤍');
 
   const updateMessageData = (updatedMessage) => {
     const messages = messageData.map((message) => {
@@ -25,11 +25,10 @@ const App = () => {
     bool ? setTotalLikes((totalLikes += 1)) : setTotalLikes((totalLikes -= 1));
   };
 
-  // const updateLikeButton = (likedBool) => {
-  //   setLikeButton(likedBool ? '❤️' : '🤍');
-  //   const btnState = likeButton === '🤍';
-  //   updateTotalLikes(btnState);
-  // };
+  const updateLikeButton = (likedBool, btnState) => {
+    setLikeButton(likedBool ? '❤️' : '🤍');
+    updateTotalLikes(btnState);
+  };
 
   return (
     <div id="App">
@@ -44,8 +43,8 @@ const App = () => {
           totalLikes={totalLikes}
           setTotalLikes={setTotalLikes}
           updateTotalLikes={updateTotalLikes}
-          // updateLikeButton={updateLikeButton}
-          // likeButton={likeButton}
+          updateLikeButton={updateLikeButton}
+          likeButton={likeButton}
         />
       </main>
     </div>
