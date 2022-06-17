@@ -15,6 +15,9 @@ const ChatLog = (props) => {
         updateMessageData={props.updateMessageData}
         totalLikes={props.totalLikes}
         updateTotalLikes={props.updateTotalLikes}
+        // updateLikeButton={props.updateLikeButton}
+        // likeButton={props.likeButton}
+        test={test}
       />
     );
   };
